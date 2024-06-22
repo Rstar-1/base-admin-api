@@ -1,9 +1,8 @@
 const seo = require("../../models/seo/SeoSchema");
 
 // Seo add
-exports.seoregister = async (req, res) => {
-  const { metatitle, metadescription, metakeyword, metaauthor } =
-    req.body;
+exports.seoadddata = async (req, res) => {
+  const { metatitle, metadescription, metakeyword, metaauthor } = req.body;
   try {
     const adduser = new seo({
       metatitle,
@@ -11,7 +10,7 @@ exports.seoregister = async (req, res) => {
       metakeyword,
       metaauthor,
     });
-    
+
     await adduser.save();
     res.status(201).json(adduser);
 
@@ -22,7 +21,7 @@ exports.seoregister = async (req, res) => {
 };
 
 // Seo all data
-exports.getseodata = async (req, res) => {
+exports.seogetdata = async (req, res) => {
   try {
     const userdata = await seo.find();
     res.status(201).json(userdata);
@@ -34,7 +33,7 @@ exports.getseodata = async (req, res) => {
 };
 
 // Seo single data
-exports.getseosingledata = async (req, res) => {
+exports.seosingledata = async (req, res) => {
   try {
     const { id } = req.params;
 
@@ -48,7 +47,7 @@ exports.getseosingledata = async (req, res) => {
 };
 
 // Seo update data
-exports.updateseodata = async (req, res) => {
+exports.seoupdatedata = async (req, res) => {
   try {
     const { id } = req.params;
 
@@ -64,13 +63,13 @@ exports.updateseodata = async (req, res) => {
 };
 
 // Seo delete data
-exports.deleteseodata = async (req, res) => {
+exports.seodeletedata = async (req, res) => {
   try {
     const { id } = req.params;
 
     const deletuser = await seo.findByIdAndDelete({ _id: id });
     res.status(201).json(deletuser);
-    
+
     //console.log(deletuser, "seodeletedata");
   } catch (error) {
     res.status(422).json(error);

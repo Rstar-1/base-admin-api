@@ -1,8 +1,8 @@
 const seoService = require("../../services/seoservice/SeoService");
 
-exports.seoregister = async function (req, res) {
+exports.seoadddata = async function (req, res) {
   try {
-    var users = await seoService.seoregister(req, res);
+    var users = await seoService.seoadddata(req, res);
 
     return res.status(200).json({
       status: 200,
@@ -14,9 +14,9 @@ exports.seoregister = async function (req, res) {
   }
 };
 
-exports.getseodata = async function (req, res) {
+exports.seogetdata = async function (req, res) {
   try {
-    var users = await seoService.getseodata(req, res);
+    var users = await seoService.seogetdata(req, res);
 
     return res.status(200).json({
       status: 200,
@@ -28,9 +28,9 @@ exports.getseodata = async function (req, res) {
   }
 };
 
-exports.getseosingledata = async function (req, res) {
+exports.seosingledata = async function (req, res) {
   try {
-    var users = await seoService.getseosingledata(req, res);
+    var users = await seoService.seosingledata(req, res);
 
     return res.status(200).json({
       status: 200,
@@ -42,9 +42,9 @@ exports.getseosingledata = async function (req, res) {
   }
 };
 
-exports.updateseodata = async function (req, res) {
+exports.seoupdatedata = async function (req, res) {
   try {
-    var users = await seoService.updateseodata(req, res);
+    var users = await seoService.seoupdatedata(req, res);
 
     return res.status(200).json({
       status: 200,
@@ -56,9 +56,9 @@ exports.updateseodata = async function (req, res) {
   }
 };
 
-exports.deleteseodata = async function (req, res) {
+exports.seodeletedata = async function (req, res) {
   try {
-    var users = await seoService.deleteseodata(req, res);
+    var users = await seoService.seodeletedata(req, res);
 
     return res.status(200).json({
       status: 200,
