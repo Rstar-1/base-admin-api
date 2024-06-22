@@ -3,12 +3,9 @@ const router = express.Router();
 const Controller = require("../../controllers");
 
 module.exports = function (app) {
-  app.post("/seoregister", Controller.SeoController.seoregister);
-  app.get("/getseodata", Controller.SeoController.getseodata);
-  app.get(
-    "/getseosingledata/:id",
-    Controller.SeoController.getseosingledata
-  );
-  app.patch("/updateseodata/:id", Controller.SeoController.updateseodata);
-  app.delete("/deleteseodata/:id", Controller.SeoController.deleteseodata);
+  app.post("/seoadddata", Controller.SeoController.seoregister);
+  app.get("/seogetdata", Controller.SeoController.getseodata);
+  app.get("/seosingledata/:id", Controller.SeoController.getseosingledata);
+  app.patch("/seoupdatedata/:id", Controller.SeoController.updateseodata);
+  app.delete("/seodeletedata/:id", Controller.SeoController.deleteseodata);
 };

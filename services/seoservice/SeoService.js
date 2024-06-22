@@ -2,14 +2,13 @@ const seo = require("../../models/seo/SeoSchema");
 
 // Seo add
 exports.seoregister = async (req, res) => {
-  const { metatitle, metadescription, metakeyword, metaconcial, metaauthor } =
+  const { metatitle, metadescription, metakeyword, metaauthor } =
     req.body;
   try {
     const adduser = new seo({
       metatitle,
       metadescription,
       metakeyword,
-      metaconcial,
       metaauthor,
     });
     
