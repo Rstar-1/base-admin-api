@@ -45,9 +45,9 @@ exports.managementpaginationdata = async (req, res) => {
         },
       });
     }
-    const cmsstore = await management.find(searchObject).skip(offset).limit(6);
+    const managementstore = await management.find(searchObject).skip(offset).limit(6);
     const totalCount = await management.countDocuments(searchObject);
-    res.json({ cmsstore, totalCount });
+    res.json({ managementstore, totalCount });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }

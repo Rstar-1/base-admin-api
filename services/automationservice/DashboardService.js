@@ -45,9 +45,9 @@ exports.dashboardpaginationdata = async (req, res) => {
         },
       });
     }
-    const cmsstore = await dashboard.find(searchObject).skip(offset).limit(6);
+    const dashboardstore = await dashboard.find(searchObject).skip(offset).limit(6);
     const totalCount = await dashboard.countDocuments(searchObject);
-    res.json({ cmsstore, totalCount });
+    res.json({ dashboardstore, totalCount });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }

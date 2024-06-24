@@ -45,9 +45,9 @@ exports.sidebarpaginationdata = async (req, res) => {
         },
       });
     }
-    const cmsstore = await sidebar.find(searchObject).skip(offset).limit(6);
+    const sidebarstore = await sidebar.find(searchObject).skip(offset).limit(6);
     const totalCount = await sidebar.countDocuments(searchObject);
-    res.json({ cmsstore, totalCount });
+    res.json({ sidebarstore, totalCount });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
