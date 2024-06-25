@@ -6,36 +6,28 @@ const { uploadToCloud } = require("../../middleware/Upload");
 
 module.exports = function (app) {
   app.post(
-    "/cmsimageadddata",
+    "/galleryadddata",
     fileUpload("picture", false),
-    //  fileUpload([
-    //    { name: "cmsdata1", maxCount: 1 },
-    //    { name: "cmsdata2", maxCount: 1 },
-    // ]
     uploadToCloud(),
-    Controller.CmsImageController.cmsimageadddata
+    Controller.GalleryController.galleryadddata
   );
-  app.get("/cmsimagegetdata", Controller.CmsImageController.cmsimagegetdata);
+  app.get("/gallerygetdata", Controller.GalleryController.gallerygetdata);
   app.post(
-    "/cmsimagepaginationdata",
-    Controller.CmsImageController.cmsimagepaginationdata
+    "/gallerypaginationdata",
+    Controller.GalleryController.gallerypaginationdata
   );
   app.get(
-    "/cmsimagesingledata/:id",
-    Controller.CmsImageController.cmsimagesingledata
+    "/gallerysingledata/:id",
+    Controller.GalleryController.gallerysingledata
   );
   app.patch(
-    "/cmsimageupdatedata/:id",
+    "/galleryupdatedata/:id",
     fileUpload("picture", false),
-    //  fileUpload([
-    //    { name: "cmsdata1", maxCount: 1 },
-    //    { name: "cmsdata2", maxCount: 1 },
-    // ]
     uploadToCloud(),
-    Controller.CmsImageController.cmsimageupdatedata
+    Controller.GalleryController.galleryupdatedata
   );
   app.delete(
-    "/cmsimagedeletedata/:id",
-    Controller.CmsImageController.cmsimagedeletedata
+    "/gallerydeletedata/:id",
+    Controller.GalleryController.gallerydeletedata
   );
 };
